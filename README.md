@@ -24,26 +24,26 @@ pip install -r requirements.txt
 docker run -p 6379:6379 --name some-redis -d redis
 ```
 
-### 3) Запускаем само приложение
+### 3) Запускаем сам сервис
 
 ```shell
 python manage.py runserver
 ```
 
-### 3) Запускаем worker celery
+### 4) Запускаем worker celery
 P.S. Делать это нужно в соседнем терминале
 ```shell
 celery -A mailing_service worker -l info -P solo
 ```
 
 
-### 4) Запускаем flower
+### 5) Запускаем flower
 Данный компонент необходим для отслеживания процесса работы задач celery.
 ```shell
 celery -A mailing_service flower
 ```
 
-### 5) Запускаем планировщик celery 
+### 6) Запускаем планировщик celery 
 Данный компонент необходим для отслеживания процесса работы задач celery.
 ```shell
 celery -A mailing_service beat -l info
