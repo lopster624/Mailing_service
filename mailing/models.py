@@ -3,8 +3,6 @@ from django.core.validators import RegexValidator
 from django.db import models
 
 
-# Create your models here.
-
 class Mailing(models.Model):
     """Рассылка"""
     start_time = models.DateTimeField(verbose_name='Дата и время запуска рассылки')
@@ -45,10 +43,10 @@ class Message(models.Model):
     """Сообщение"""
 
     STATUSES = (
-        (0, 'Отправлено'),
-        (1, 'Доставлено'),
-        (2, 'В процессе отправки'),
-        (3, 'Не доставлено')
+        (0, 'Sent'),
+        (1, 'Delivered'),
+        (2, 'In_process'),
+        (3, 'Error')
     )
     create_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата отправки')
     status = models.IntegerField(choices=STATUSES, verbose_name='Статус отправки')
