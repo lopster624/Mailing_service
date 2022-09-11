@@ -44,7 +44,7 @@ celery -A mailing_service flower
 ```
 
 ### 6) Запуск планировщика задач celery 
-Данный компонент необходим для отслеживания процесса работы задач celery.
+Данный компонент необходим для планирования задач
 ```shell
 celery -A mailing_service beat -l info
 ```
